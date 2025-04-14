@@ -1,24 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
 
-// 🏠 Pages
-import LanguageSelector from "./pages/LanguageSelector";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import RegisterCustomer from "./pages/RegisterCustomer";
-import RegisterDelivery from "./pages/RegisterDelivery";
-import RegisterStore from "./pages/RegisterStore";
+// 📄 Pages
+import LanguageSelector from './pages/LanguageSelector';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import RegisterCustomer from './pages/RegisterCustomer';
+import RegisterDelivery from './pages/RegisterDelivery';
+import RegisterStore from './pages/RegisterStore';
 
 // 🧑‍💼 Dashboards
-import CustomerDashboard from "./pages/CustomerDashboard";
-import DeliveryDashboard from "./pages/DeliveryDashboard";
-import StoreDashboard from "./pages/StoreDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+import CustomerDashboard from './pages/CustomerDashboard';
+import DeliveryDashboard from './pages/DeliveryDashboard';
+import StoreDashboard from './pages/StoreDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+
+// 🧩 Components
+import Header from './component/Header'; // ✅ Correct path
 
 const App = () => {
   return (
     <Router>
+      <Header /> {/* Rendered once here only */}
+
       <Routes>
         {/* 🌐 General Routes */}
         <Route path="/" element={<LanguageSelector />} />
@@ -33,11 +39,9 @@ const App = () => {
 
         {/* 🧭 Dashboards */}
         <Route path="/dashboard/customer" element={<CustomerDashboard />} />
-
         <Route path="/dashboard/delivery" element={<DeliveryDashboard />} />
         <Route path="/dashboard/store" element={<StoreDashboard />} />
         <Route path="/dashboard/admin" element={<AdminDashboard />} />
-
       </Routes>
     </Router>
   );

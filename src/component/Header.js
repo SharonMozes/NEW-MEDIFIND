@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import i18n from "i18next";  // Import i18n
 
 const Header = () => {
   const [showRegisterDropdown, setShowRegisterDropdown] = useState(false);
@@ -15,44 +16,44 @@ const Header = () => {
       {/* Search Bar */}
       <input
         type="text"
-        placeholder="Search medicines..."
+        placeholder={i18n.t("searchPlaceholder")}  // Add placeholder translation
         style={styles.searchBar}
       />
 
       {/* Right Actions: Home, Login, Register */}
       <div style={styles.actions}>
         <button style={styles.btn} onClick={() => navigate("/")}>
-          Home
+          {i18n.t("home")}  {/* Dynamically use translation */}
         </button>
 
         <button style={styles.btn} onClick={() => navigate("/login")}>
-          Login
+          {i18n.t("login")}  {/* Dynamically use translation */}
         </button>
 
         <div
           style={styles.btn}
           onClick={() => setShowRegisterDropdown(!showRegisterDropdown)}
         >
-          Register ⬇
+          {i18n.t("register")} ⬇  {/* Dynamically use translation */}
           {showRegisterDropdown && (
             <div style={styles.dropdown}>
               <div
                 style={styles.dropdownItem}
                 onClick={() => navigate("/register/customer")}
               >
-                As Customer
+                {i18n.t("registerAsCustomer")}  {/* Add translation for "As Customer" */}
               </div>
               <div
                 style={styles.dropdownItem}
                 onClick={() => navigate("/register/delivery")}
               >
-                As Delivery Boy
+                {i18n.t("registerAsDelivery")}  {/* Add translation for "As Delivery Boy" */}
               </div>
               <div
                 style={styles.dropdownItem}
                 onClick={() => navigate("/register/store")}
               >
-                As Medical Store
+                {i18n.t("registerAsStore")}  {/* Add translation for "As Medical Store" */}
               </div>
             </div>
           )}

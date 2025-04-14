@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+// 🏠 Pages
+import LanguageSelector from "./pages/LanguageSelector";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import RegisterCustomer from "./pages/RegisterCustomer";
+import RegisterDelivery from "./pages/RegisterDelivery";
+import RegisterStore from "./pages/RegisterStore";
+
+// 🧑‍💼 Dashboards
+import CustomerDashboard from "./pages/CustomerDashboard";
+import DeliveryDashboard from "./pages/DeliveryDashboard";
+import StoreDashboard from "./pages/StoreDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* 🌐 General Routes */}
+        <Route path="/" element={<LanguageSelector />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* ✍️ Registration */}
+        <Route path="/register/customer" element={<RegisterCustomer />} />
+        <Route path="/register/delivery" element={<RegisterDelivery />} />
+        <Route path="/register/store" element={<RegisterStore />} />
+
+        {/* 🧭 Dashboards */}
+        <Route path="/dashboard/customer" element={<CustomerDashboard />} />
+
+        <Route path="/dashboard/delivery" element={<DeliveryDashboard />} />
+        <Route path="/dashboard/store" element={<StoreDashboard />} />
+        <Route path="/dashboard/admin" element={<AdminDashboard />} />
+
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

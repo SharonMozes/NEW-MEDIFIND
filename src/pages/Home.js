@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import i18n from "i18next";
+import './Home.css';
+import heroImage from './heroImg.png';
 
-import i18n from "i18next"; 
 const Home = () => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -12,7 +15,7 @@ const Home = () => {
 
   const handleUpload = async () => {
     if (!file) {
-      setMessage(i18n.t("selectFile")); 
+      setMessage(i18n.t("selectFile"));
       return;
     }
 
@@ -40,17 +43,25 @@ const Home = () => {
 
   return (
     <>
-    
-
       {/* Hero Section */}
       <section style={styles.hero}>
         <h1 style={styles.heroTitle}>{i18n.t("welcome")}</h1>
         <p style={styles.heroSub}>{i18n.t("heroDescription")}</p>
-        <img
-          src="https://i.pinimg.com/originals/91/22/b1/9122b11c4a355f05d41d223bfc49531d.gif"
-          alt="hero"
-          style={styles.heroImage}
-        />
+        <img src={heroImage} alt="hero" style={styles.heroImage} />
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section style={styles.whyChooseUs}>
+        <h2 style={styles.whyChooseUsHeading}>Why Choose Us?</h2>
+        <p style={styles.whyChooseUsText}>
+          At MediFind, we strive to provide seamless, fast, and reliable medicine delivery services.
+          Whether you need essential medications, wellness products, or emergency supplies, we ensure
+          that your health is in good hands. Our dedicated team guarantees timely deliveries right to
+          your doorstep, making your health journey easier and more efficient.
+        </p>
+        <div style={styles.buttonContainer}>
+          
+        </div>
       </section>
 
       {/* Upload Section */}
@@ -62,6 +73,7 @@ const Home = () => {
         {message && <p style={{ marginTop: "10px", color: "#333" }}>{message}</p>}
       </section>
 
+      {/* Footer */}
       <footer style={styles.footer}>
         <p>{i18n.t("footerText")}</p>
       </footer>
@@ -85,10 +97,17 @@ const styles = {
     marginBottom: "20px",
   },
   heroImage: {
-    maxWidth: "100%",
-    height: "auto",
-    borderRadius: "12px",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+    backgroundSize: "500px",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    minHeight: "500px",
+    width: "600px",
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    animation: "driveScooter 5s linear infinite",
   },
   uploadSection: {
     padding: "40px 20px",
@@ -111,6 +130,41 @@ const styles = {
     backgroundColor: "#f8f9fa",
     padding: "20px 0",
     textAlign: "center",
+  },
+  
+  // Why Choose Us Section Styles
+  whyChooseUs: {
+    textAlign: "center",
+    padding: "50px 20px",
+    backgroundColor: "#ffffff",
+    maxWidth: "800px",
+    margin: "0 auto",
+  },
+  whyChooseUsHeading: {
+    fontSize: "30px",
+    fontWeight: "bold",
+    marginBottom: "20px",
+  },
+  whyChooseUsText: {
+    fontSize: "18px",
+    color: "#555",
+    lineHeight: "1.6",
+    marginBottom: "30px",
+  },
+  buttonContainer: {
+    textAlign: "center",
+  },
+  knowMoreBtn: {
+    padding: "10px 20px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "16px",
+  },
+  linkText: {
+    textDecoration: "none",
+    color: "white",
   },
 };
 

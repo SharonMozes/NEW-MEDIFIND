@@ -60,7 +60,10 @@ const Home = () => {
           your doorstep, making your health journey easier and more efficient.
         </p>
         <div style={styles.buttonContainer}>
-          
+          {/* Example of using Link */}
+          <Link to="/about" style={styles.linkText}>
+            <button style={styles.knowMoreBtn}>Know More</button>
+          </Link>
         </div>
       </section>
 
@@ -82,10 +85,15 @@ const Home = () => {
 };
 
 const styles = {
+  body: {
+    backgroundColor: "#FFE2D6", // Light peach background color for the whole page
+    margin: 0,
+    fontFamily: 'Arial, sans-serif', // Ensure proper font family across the page
+  },
   hero: {
     textAlign: "center",
     padding: "40px 20px",
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#FFE2D6", // Same light peach background color for this section
   },
   heroTitle: {
     fontSize: "36px",
@@ -111,7 +119,7 @@ const styles = {
   },
   uploadSection: {
     padding: "40px 20px",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#FFE2D6", // Same light peach background color for upload section
     textAlign: "center",
   },
   fileInput: {
@@ -120,25 +128,24 @@ const styles = {
   },
   uploadBtn: {
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#004d00", // Dark green matching header
     color: "#fff",
     border: "none",
     cursor: "pointer",
     fontSize: "16px",
   },
   footer: {
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#FFE2D6", // Same light peach background color for footer
     padding: "20px 0",
     textAlign: "center",
   },
-  
   // Why Choose Us Section Styles
   whyChooseUs: {
     textAlign: "center",
     padding: "50px 20px",
-    backgroundColor: "#ffffff",
-    maxWidth: "800px",
-    margin: "0 auto",
+    backgroundColor: "#FFE2D6", // Same light peach background color for this section
+    maxWidth: "100%",
+    width: "100%",
   },
   whyChooseUsHeading: {
     fontSize: "30px",
@@ -156,7 +163,7 @@ const styles = {
   },
   knowMoreBtn: {
     padding: "10px 20px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#004d00", // Dark green for Know More button
     color: "#fff",
     border: "none",
     cursor: "pointer",

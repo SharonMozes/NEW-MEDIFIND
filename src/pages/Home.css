@@ -1,23 +1,26 @@
 @keyframes driveScooter {
-    0% {
-      transform: translateX(100%);
-    }
-    50% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(100%);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  50% {
+    transform: translateX(0%);
   }
-  
+  100% {
+    transform: translateX(-50%); /* Keep the scooter from going too far off-screen */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px); /* A smaller distance for a gentler fade-in */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scooter-element {
+  animation: driveScooter 3s ease-in-out infinite, fadeIn 1s ease-in-out;
+}

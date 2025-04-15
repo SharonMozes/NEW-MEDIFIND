@@ -68,7 +68,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     padding: "15px 30px",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#004d00", // Darker green
     justifyContent: "space-between",
     position: "relative",
   },
@@ -76,6 +76,7 @@ const styles = {
     fontSize: "22px",
     fontWeight: "bold",
     cursor: "pointer",
+    color: "#fff",
   },
   searchBar: {
     padding: "8px",
@@ -92,7 +93,7 @@ const styles = {
   btn: {
     padding: "8px 14px",
     borderRadius: "5px",
-    backgroundColor: "#007bff",
+    backgroundColor: "#004d00", // Dark green for buttons
     color: "#fff",
     border: "none",
     cursor: "pointer",

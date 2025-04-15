@@ -54,31 +54,85 @@ const Login = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-        <button type="submit">Login</button>
-      </form>
+    <div style={styles.pageContainer}>
+      <div style={styles.loginContainer}>
+        <h2 style={styles.header}>Login</h2>
+        <form onSubmit={handleLogin} style={styles.form}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button}>
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  pageContainer: {
+    backgroundColor: "#FFE2D6", // Full-page light peach background
+    height: "100vh", // Ensure the page covers full height of the viewport
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: "Arial, sans-serif",
+  },
+  loginContainer: {
+    backgroundColor: "#fff", // White background for the login container
+    padding: "40px",
+    borderRadius: "10px", // Rounded corners for a soft look
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add shadow for depth
+    width: "100%",
+    maxWidth: "400px", // Limit the container's width
+    textAlign: "center",
+  },
+  header: {
+    fontSize: "32px",
+    marginBottom: "20px",
+    color: "#333", // Dark color for the header text
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  input: {
+    padding: "12px",
+    margin: "10px 0",
+    fontSize: "16px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+    width: "100%",
+    boxSizing: "border-box", // To include padding in the width calculation
+  },
+  button: {
+    padding: "12px",
+    backgroundColor: "#004d00", // Dark green button color
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontSize: "16px",
+    width: "100%",
+    transition: "background-color 0.3s ease", // Button hover effect
+  },
+  buttonHover: {
+    backgroundColor: "#003b00", // Darker green on hover
+  },
 };
 
 export default Login;
